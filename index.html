@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usama Hassan | Front-End Web Developer</title>
+    <meta name="description" content="Portfolio of Usama Hassan — a passionate Front-End Web Developer specializing in responsive, modern web applications with HTML, CSS, JavaScript, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-line"></div>
+            <div class="preloader-text">
+                <span class="preloader-char">U</span>
+                <span class="preloader-char">S</span>
+                <span class="preloader-char">A</span>
+                <span class="preloader-char">M</span>
+                <span class="preloader-char">A</span>
+                <span class="preloader-char">&nbsp;</span>
+                <span class="preloader-char">H</span>
+                <span class="preloader-char">A</span>
+                <span class="preloader-char">S</span>
+                <span class="preloader-char">S</span>
+                <span class="preloader-char">A</span>
+                <span class="preloader-char">N</span>
+            </div>
+            <div class="preloader-sub">Loading Portfolio...</div>
+        </div>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-name"><span class="logo-char">U</span><span class="logo-char">s</span><span class="logo-char">a</span><span class="logo-char">m</span><span class="logo-char">a</span><span class="logo-char">&nbsp;</span><span class="logo-char">H</span><span class="logo-char">a</span><span class="logo-char">s</span><span class="logo-char">s</span><span class="logo-char">a</span><span class="logo-char">n</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+                <a href="#education" class="nav-link" data-section="education">Education</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                    <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <a href="#contact" class="nav-cta">Hire Me</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#education" class="mobile-link">Education</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-dot"></span>
+                    Available for work
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-line reveal-up">Hi, I'm</span>
+                    <span class="hero-name reveal-up">
+                        <span class="name-char" style="--i:0">U</span><span class="name-char" style="--i:1">s</span><span class="name-char" style="--i:2">a</span><span class="name-char" style="--i:3">m</span><span class="name-char" style="--i:4">a</span>
+                        <span class="name-space">&nbsp;</span>
+                        <span class="name-char" style="--i:5">H</span><span class="name-char" style="--i:6">a</span><span class="name-char" style="--i:7">s</span><span class="name-char" style="--i:8">s</span><span class="name-char" style="--i:9">a</span><span class="name-char" style="--i:10">n</span>
+                    </span>
+                </h1>
+                <div class="hero-role reveal-up">
+                    <span class="role-prefix">&gt;&gt;</span>
+                    <span class="typewriter" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-desc reveal-up">
+                    I craft responsive, pixel-perfect web experiences that blend
+                    stunning visuals with clean, performant code.
+                </p>
+                <div class="hero-actions reveal-up">
+                    <a href="#experience" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Let's Talk</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </a>
+                </div>
+                <div class="hero-stats reveal-up">
+                    <div class="stat">
+                        <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="15">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Done</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Certificates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual reveal-up">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-border"></div>
+                    <div class="hero-image-glow"></div>
+                    <img src="profile.png" alt="Usama Hassan - Front-End Web Developer" class="hero-image">
+                    <div class="hero-image-overlay"></div>
+                </div>
+                <div class="floating-tag tag-1">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    HTML/CSS/JS
+                </div>
+                <div class="floating-tag tag-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    Responsive Design
+                </div>
+                <div class="floating-tag tag-3">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    UI/UX
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">&lt;about&gt;</span>
+                <h2 class="section-title reveal-up">Professional Profile</h2>
+                <div class="section-line reveal-up"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal-up">
+                    <p class="about-paragraph lead">
+                        Motivated <span class="text-accent">Front-End Web Developer</span> with experience building responsive, user-friendly, and visually appealing web applications.
+                    </p>
+                    <p class="about-paragraph">
+                        Skilled in HTML, CSS, JavaScript, Bootstrap, and modern web development practices. Experienced in developing interactive user interfaces, optimizing website performance, troubleshooting front-end issues, and collaborating on web-based projects.
+                    </p>
+                    <p class="about-paragraph">
+                        Passionate about creating seamless user experiences, writing clean code, and continuously learning new technologies to deliver high-quality web solutions.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Jhang, Pakistan</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>usamahassan.it@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+92 3088074258</span>
+                        </div>
+                        <div class="info-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                            <a href="https://usamahassan-it.github.io/portfolio" target="_blank" rel="noopener">usamahassan-it.github.io/portfolio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-interests reveal-up">
+                    <h3 class="interests-title">What Drives Me</h3>
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span>UI Design</span>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg>
+                            </div>
+                            <span>Innovation</span>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
+                            <span>Open Source</span>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                            </div>
+                            <span>Problem Solving</span>
+                        </div>
+                        <div class="interest-card">
+                            <div class="interest-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1.27A7 7 0 0 1 14 22h-4a7 7 0 0 1-6.73-3H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path></svg>
+                            </div>
+                            <span>AI & Tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">&lt;experience&gt;</span>
+                <h2 class="section-title reveal-up">Professional Journey</h2>
+                <div class="section-line reveal-up"></div>
+            </div>
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Apr 2025 – Feb 2026
+                            </span>
+                        </div>
+                        <h3 class="timeline-title">Front-End Web Developer</h3>
+                        <h4 class="timeline-company">ARWEN TECH</h4>
+                        <p class="timeline-desc">Developed and maintained responsive web applications using modern front-end technologies. Collaborated with team members to improve user experience, optimize performance, and implement new features.</p>
+                        <ul class="timeline-list">
+                            <li>Developed responsive and interactive web interfaces using HTML, CSS, and JavaScript</li>
+                            <li>Optimized website performance and improved loading speed across multiple pages</li>
+                            <li>Integrated front-end components with backend services and APIs</li>
+                            <li>Identified and resolved user interface issues through testing and debugging</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Feb 2026 – May 2026
+                            </span>
+                        </div>
+                        <h3 class="timeline-title">STI – Computer Science</h3>
+                        <h4 class="timeline-company">Government High School Bhone</h4>
+                        <p class="timeline-desc">Delivered computer science instruction while supporting students in programming and technology-related activities. Promoted digital literacy within the computer lab environment.</p>
+                        <ul class="timeline-list">
+                            <li>Taught computer science fundamentals and basic programming concepts</li>
+                            <li>Assisted students with web development and IT-related practical activities</li>
+                            <li>Maintained computer lab systems and educational software</li>
+                            <li>Conducted practical sessions on computer applications and technology tools</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Teaching</span>
+                            <span class="tag">Computer Science</span>
+                            <span class="tag">Lab Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <span class="timeline-date">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Feb 2024 – Mar 2025
+                            </span>
+                        </div>
+                        <h3 class="timeline-title">Intern Front-End Web Developer</h3>
+                        <h4 class="timeline-company">SOFT-TECH Faisalabad</h4>
+                        <p class="timeline-desc">Designed and developed modern web interfaces while ensuring responsive design and cross-browser compatibility. Focused on improving usability, accessibility, and overall user experience.</p>
+                        <ul class="timeline-list">
+                            <li>Built responsive web pages using HTML, CSS, JavaScript, and Bootstrap</li>
+                            <li>Enhanced website usability and accessibility through UI improvements</li>
+                            <li>Diagnosed and fixed front-end issues to improve application reliability</li>
+                            <li>Worked with databases and backend systems to manage and display data efficiently</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Bootstrap</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Debugging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">&lt;skills&gt;</span>
+                <h2 class="section-title reveal-up">My Arsenal</h2>
+                <div class="section-line reveal-up"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal-up">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3>Programming & Web Dev</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                            </div>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                            </div>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <span>Python Basics</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                            </div>
+                            <span>Responsive Design</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                            </div>
+                            <span>DOM Manipulation</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            </div>
+                            <span>Basic MongoDB</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <span>Debugging & Testing</span>
+                        </div>
+                        <div class="skill-chip">
+                            <div class="skill-chip-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                            <span>UI/UX Implementation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </div>
+                        <h3>Dev Tools & Workflow</h3>
+                    </div>
+                    <div class="skill-tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+                            </div>
+                            <span>Git & GitHub</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            </div>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1.27A7 7 0 0 1 14 22h-4a7 7 0 0 1-6.73-3H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path></svg>
+                            </div>
+                            <span>Antigravity IDE</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            </div>
+                            <span>Chrome DevTools</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                            </div>
+                            <span>REST API Integration</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            </div>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">&lt;education&gt;</span>
+                <h2 class="section-title reveal-up">Education & Certificates</h2>
+                <div class="section-line reveal-up"></div>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card reveal-up">
+                    <div class="edu-card-accent"></div>
+                    <div class="edu-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path></svg>
+                    </div>
+                    <div class="edu-date">2021 – 2025</div>
+                    <h3 class="edu-degree">Bachelor of Science in Information Technology</h3>
+                    <h4 class="edu-school">University Of Agriculture Faisalabad</h4>
+                    <div class="edu-location">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Faisalabad, Pakistan
+                    </div>
+                </div>
+
+                <div class="cert-section reveal-up">
+                    <h3 class="cert-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        Certificates
+                    </h3>
+                    <div class="cert-cards">
+                        <div class="cert-card">
+                            <div class="cert-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Networking Basics</h4>
+                                <span>Cisco</span>
+                            </div>
+                            <div class="cert-verified">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                Verified
+                            </div>
+                        </div>
+                        <div class="cert-card">
+                            <div class="cert-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <div class="cert-info">
+                                <h4>Introduction to Cyber Security</h4>
+                                <span>Cisco</span>
+                            </div>
+                            <div class="cert-verified">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                Verified
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">&lt;contact&gt;</span>
+                <h2 class="section-title reveal-up">Let's Connect</h2>
+                <div class="section-line reveal-up"></div>
+                <p class="section-subtitle reveal-up">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-cards reveal-up">
+                    <a href="mailto:usamahassan.it@gmail.com" class="contact-card" id="contact-email">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Email</h4>
+                            <span>usamahassan.it@gmail.com</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <a href="tel:+923088074258" class="contact-card" id="contact-phone">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Phone</h4>
+                            <span>+92 3088074258</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <a href="https://usamahassan-it.github.io/portfolio" target="_blank" rel="noopener" class="contact-card" id="contact-portfolio">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Portfolio</h4>
+                            <span>usamahassan-it.github.io</span>
+                        </div>
+                        <svg class="contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                    <div class="contact-card location-card" id="contact-location">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="contact-card-info">
+                            <h4>Location</h4>
+                            <span>Jhang, Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal-up">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="form-name" placeholder=" " required>
+                            <label for="form-name">Your Name</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="form-email" placeholder=" " required>
+                            <label for="form-email">Your Email</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="form-subject" placeholder=" ">
+                            <label for="form-subject">Subject</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="form-message" placeholder=" " rows="4" required></textarea>
+                            <label for="form-message">Your Message</label>
+                            <div class="form-line"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" id="form-submit">
+                            <span>Send Message</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <a href="#home" class="footer-logo">Usama Hassan</a>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Usama Hassan. Crafted with passion & clean code.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/usamahassan-it" target="_blank" rel="noopener" aria-label="GitHub Profile">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="mailto:usamahassan.it@gmail.com" aria-label="Send Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

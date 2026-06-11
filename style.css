@@ -249,6 +249,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.page-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
 ::selection {
     background: rgba(255, 107, 53, 0.3);
     color: var(--text-primary);
@@ -436,6 +442,7 @@ img {
     z-index: 1000;
     padding: 20px 0;
     transition: all 0.4s var(--ease-out-expo);
+    overflow-x: hidden;
 }
 
 .navbar.scrolled {
@@ -1165,6 +1172,7 @@ img {
 .section {
     padding: var(--section-padding);
     position: relative;
+    overflow-x: hidden;
 }
 
 .section-container {

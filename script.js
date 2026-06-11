@@ -10,6 +10,13 @@
     const saved = localStorage.getItem('portfolio-theme');
     if (saved === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
+    } else if (saved === 'dark') {
+        // User explicitly chose dark — keep default (no attribute)
+    } else {
+        // No saved preference — follow system setting
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
     }
 })();
 

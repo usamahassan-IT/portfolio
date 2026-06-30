@@ -398,12 +398,13 @@ body.light-mode .greeting-badge {
 }
 
 .animated-title {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1rem, 4vw, 2.5rem);
     font-weight: 500;
     color: var(--accent); /* Uses the Amber/Gold theme color */
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 0;
+    white-space: nowrap; /* Prevents long titles from wrapping and clipping */
 }
 
 .hero-right {
@@ -552,35 +553,24 @@ body.light-mode .skill-tag {
     
     /* Fix Hero Clipping Bug (Prevents top content from being pushed off-screen when taller than 100vh) */
     #hero-editorial { 
-        display: block; /* Use block instead of flex to prevent any height collapse bugs */
+        justify-content: flex-start; 
         padding-top: 130px; 
-        padding-bottom: 60px;
+        padding-bottom: 80px;
         height: auto;
-        min-height: auto; /* Remove min-height to allow natural stacking */
+        min-height: auto;
+        margin-bottom: 50px; /* Force clearance below photo so it doesn't overlap skills section */
     }
 
     /* Adjust Hero Layout */
     .hero-name { font-size: 2.2rem; letter-spacing: -0.5px; }
     .hero-content-wrapper { 
-        display: flex;
-        flex-direction: column;
-        gap: 40px; 
-    }
-    
-    /* Fix Title Wrapping/Clipping on Mobile */
-    .animated-title-container {
-        height: 70px; /* Give enough fixed space for 2 lines of wrapping text */
-        align-items: flex-start; /* Pin to top so 1-line titles don't bounce around */
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-    .animated-title {
-        font-size: 1.4rem;
-        line-height: 1.2;
+        grid-template-columns: 1fr; 
+        gap: 60px; /* Add more gap between text and photo */
+        align-items: flex-start;
     }
     
     /* Constrain Profile Image on Mobile */
-    .hero-right { justify-content: center; width: 100%; }
+    .hero-right { justify-content: center; width: 100%; margin-bottom: 40px; }
     .editorial-profile { max-width: 250px; margin-top: 0; }
     
     /* Adjust Paragraph Text on Mobile */

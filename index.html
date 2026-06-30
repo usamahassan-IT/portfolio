@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usama Hassan - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <!-- Import map for Three.js -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <!-- The 3D Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- The Loading UI Overlay -->
+    <div id="loading-screen">
+        <div class="loading-ui">
+            <div class="brand">
+                <h1 class="portfolio-name">USAMA HASSAN</h1>
+                <h2 class="portfolio-subtitle">PORTFOLIO</h2>
+            </div>
+            
+            <h3 class="loading-title">SYSTEM <span class="glow">ENGAGED</span></h3>
+            
+            <div class="loading-center">
+                <div class="circular-progress">
+                    <svg viewBox="0 0 200 200">
+                        <!-- Background static ring -->
+                        <circle class="bg" cx="100" cy="100" r="80"></circle>
+                        <!-- Foreground animated ring -->
+                        <circle class="fg" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <span class="loading-percentage">0%</span>
+                </div>
+            </div>
+            
+            <div class="loading-details">
+                <span class="loading-status">Igniting render engine...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIXED HEADER (Outside scroll container) -->
+    <header id="site-header" class="editorial-nav">
+        <div class="logo">Usama Hassan.</div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#work">WORK</a>
+            <a href="#services">SERVICES</a>
+            <a href="#contact">CONTACT</a>
+            <button id="theme-toggle" class="theme-btn">☀️ Light Mode</button>
+        </nav>
+    </header>
+
+    <!-- Main Content (Hidden initially) -->
+    <div id="main-content">
+        <!-- IMMERSIVE HERO SECTION -->
+        <section id="hero-editorial">
+
+            <!-- CENTER TITLE & PROFILE -->
+            <div class="hero-content-wrapper">
+                <div class="hero-left">
+                    <div class="greeting-badge">👋 Hi, I am</div>
+                    <h1 class="hero-name">Usama Hassan.</h1>
+                    <div class="animated-title-container">
+                        <h2 class="animated-title">Web Developer</h2>
+                    </div>
+                    <div class="hero-subtext-container">
+                        <p class="hero-subtext">
+                            Motivated Web Developer with experience building responsive, user-friendly, and visually appealing web applications. Skilled in HTML, CSS, JavaScript, Bootstrap, and modern web development practices. Experienced in developing interactive user interfaces, optimizing website performance, troubleshooting front-end issues, and collaborating on web-based projects. Passionate about creating seamless user experiences, writing clean code, and continuously learning new technologies to deliver high-quality web solutions.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="editorial-profile">
+                        <img src="profile.png" alt="Usama Hassan">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREMIUM SKILLS SECTION -->
+        <section id="skills-section">
+            <div class="skills-container">
+                
+                <div class="skill-category">
+                    <h2 class="category-title">Programming & Web Development</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Responsive Web Design</span>
+                        <span class="skill-tag">DOM Manipulation</span>
+                        <span class="skill-tag">Databases</span>
+                        <span class="skill-tag">Debugging & Testing</span>
+                        <span class="skill-tag">UI/UX Implementation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h2 class="category-title">Web Development Tools</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Google Antigravity IDE</span>
+                        <span class="skill-tag">Chrome Developer Tools</span>
+                        <span class="skill-tag">REST API Integration</span>
+                        <span class="skill-tag">MongoDB & MySQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

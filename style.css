@@ -567,6 +567,18 @@ body.light-mode .skill-tag {
         gap: 40px; 
     }
     
+    /* Fix Title Wrapping/Clipping on Mobile */
+    .animated-title-container {
+        height: 70px; /* Give enough fixed space for 2 lines of wrapping text */
+        align-items: flex-start; /* Pin to top so 1-line titles don't bounce around */
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .animated-title {
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
+    
     /* Constrain Profile Image on Mobile */
     .hero-right { justify-content: center; width: 100%; }
     .editorial-profile { max-width: 250px; margin-top: 0; }

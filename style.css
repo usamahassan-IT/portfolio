@@ -569,8 +569,13 @@ body.light-mode .skill-tag {
         align-items: flex-start;
     }
     
-    /* Constrain Profile Image on Mobile */
-    .hero-right { justify-content: center; width: 100%; margin-bottom: 40px; }
+    /* Constrain Profile Image on Mobile and Move to Top */
+    .hero-right { 
+        justify-content: center; 
+        width: 100%; 
+        margin-bottom: 20px; 
+        order: -1; /* Forces the image to appear BEFORE the text on mobile */
+    }
     .editorial-profile { max-width: 250px; margin-top: 0; }
     
     /* Adjust Paragraph Text on Mobile */

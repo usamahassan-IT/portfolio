@@ -419,21 +419,52 @@ body.light-mode .greeting-badge {
     width: 100%;
     max-width: 320px;
     aspect-ratio: 4/5;
-    overflow: hidden;
     position: relative;
     border-radius: 12px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated Glowing Border Effect */
+.editorial-profile::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(transparent, transparent, transparent, var(--accent));
+    animation: rotateBorder 4s linear infinite;
+    z-index: 0;
+}
+
+/* Inner Background Mask to hide the middle of the conic gradient */
+.editorial-profile::after {
+    content: '';
+    position: absolute;
+    inset: 4px; /* Thickness of the animated border */
+    background: var(--bg-color);
+    border-radius: 10px;
+    z-index: 1;
 }
 
 .editorial-profile img {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
     object-fit: cover;
+    border-radius: 10px;
+    z-index: 2;
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .editorial-profile:hover img {
     transform: scale(1.05);
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .hero-subtext-container {

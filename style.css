@@ -550,20 +550,33 @@ body.light-mode .skill-tag {
     /* Hide custom cursor on touch devices */
     .cursor-trail { display: none !important; }
     
+    /* Fix Hero Clipping Bug (Prevents top content from being pushed off-screen when taller than 100vh) */
+    #hero-editorial { 
+        justify-content: flex-start; 
+        padding-top: 130px; 
+        padding-bottom: 60px;
+        height: auto;
+    }
+
     /* Adjust Hero Layout */
     .hero-name { font-size: 2.2rem; letter-spacing: -0.5px; }
     .hero-content-wrapper { 
         grid-template-columns: 1fr; 
-        gap: 30px; 
+        gap: 40px; 
+        align-items: flex-start;
     }
     
     /* Constrain Profile Image on Mobile */
-    .hero-right { justify-content: center; }
-    .editorial-profile { max-width: 280px; margin-top: 20px; }
+    .hero-right { justify-content: center; width: 100%; }
+    .editorial-profile { max-width: 250px; margin-top: 0; }
+    
+    /* Adjust Paragraph Text on Mobile */
+    .hero-subtext { font-size: 0.95rem; line-height: 1.6; text-align: left; }
     
     /* Adjust Skills Layout */
     .skills-container { grid-template-columns: 1fr; gap: 40px; }
     .category-title { font-size: 1.5rem; }
+    .massive-section-title { font-size: 2.5rem; }
     
     /* Hide navigation links on small mobile screens to prevent overflow */
     .editorial-nav nav a { display: none; }

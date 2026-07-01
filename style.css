@@ -322,6 +322,28 @@ body.light-mode .editorial-nav {
     opacity: 0.5;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mobile-menu-btn {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+}
+
+.mobile-menu-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
 .theme-btn {
     background: transparent;
     border: 1px solid var(--accent);
@@ -479,7 +501,66 @@ body.light-mode .greeting-badge {
     color: var(--text-primary);
     opacity: 0.9;
     text-align: justify;
-    max-width: 800px;
+    max-width: 750px;
+}
+
+.hero-actions {
+    margin-top: 35px;
+    display: flex;
+}
+
+.cv-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent);
+    color: var(--bg-color);
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0, 240, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .cv-download-btn {
+    color: #ffffff; /* Keep white text inside colored button for light mode */
+}
+
+.cv-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: all 0.6s ease;
+}
+
+.cv-download-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.5);
+}
+
+.cv-download-btn:hover::before {
+    left: 100%;
+}
+
+.btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 /* ---- EDITORIAL SKILLS SECTION ---- */
@@ -1148,29 +1229,53 @@ body.light-mode .footer-socials a {
     
     /* Mobile Navigation Layout */
     .editorial-nav { 
-        flex-direction: column; 
-        gap: 15px; 
         padding: 15px 5vw;
+        flex-direction: row; /* Keep logo and actions side-by-side */
     }
+    
+    .mobile-menu-btn {
+        display: block; /* Show the 3-dots menu button on mobile */
+    }
+
+    /* The Dropdown Menu */
     .editorial-nav nav { 
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        overflow-x: auto; 
-        white-space: nowrap;
-        justify-content: flex-start;
-        padding-bottom: 10px; /* Space for subtle scrollbar */
-        -webkit-overflow-scrolling: touch;
+        background: rgba(10, 15, 20, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: none; /* Hidden by default */
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
-    .editorial-nav nav::-webkit-scrollbar {
-        height: 3px;
+    
+    body.light-mode .editorial-nav nav {
+        background: rgba(245, 247, 250, 0.95);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
-    .editorial-nav nav::-webkit-scrollbar-thumb {
-        background: rgba(0, 240, 255, 0.3);
-        border-radius: 4px;
+
+    /* When JS adds the .menu-open class, display the menu */
+    .editorial-nav nav.menu-open {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
     }
-    /* Show links instead of hiding them */
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     .editorial-nav nav a { 
-        display: inline-block !important; 
-        font-size: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding: 5px 0;
     }
     /* Hide the theme toggle button text on mobile to save space if needed, or keep it */
     .theme-btn {

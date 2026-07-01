@@ -383,4 +383,33 @@ document.querySelectorAll('.tilt-element').forEach(card => {
     });
 });
 
+// --- UI INTERACTIONS ---
 
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navMenu = document.getElementById('nav-menu');
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('menu-open');
+        });
+    });
+}
+
+// Theme Toggle Logic
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if(document.body.classList.contains('light-mode')) {
+            themeToggle.innerText = '🌙 Dark Mode';
+        } else {
+            themeToggle.innerText = '☀️ Light Mode';
+        }
+    });
+}

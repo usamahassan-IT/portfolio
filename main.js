@@ -383,33 +383,20 @@ document.querySelectorAll('.tilt-element').forEach(card => {
     });
 });
 
-// --- UI INTERACTIONS ---
-
-// Mobile Menu Toggle
+// ---- MOBILE MENU LOGIC ----
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const navMenu = document.getElementById('nav-menu');
-if (mobileMenuBtn && navMenu) {
+const siteNav = document.getElementById('site-nav');
+
+if (mobileMenuBtn && siteNav) {
     mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('menu-open');
+        siteNav.classList.toggle('menu-open');
     });
 
-    // Close menu when clicking a link
-    navMenu.querySelectorAll('a').forEach(link => {
+    // Close the menu when any link is clicked
+    const navLinks = siteNav.querySelectorAll('a');
+    navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('menu-open');
+            siteNav.classList.remove('menu-open');
         });
-    });
-}
-
-// Theme Toggle Logic
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        if(document.body.classList.contains('light-mode')) {
-            themeToggle.innerText = '🌙 Dark Mode';
-        } else {
-            themeToggle.innerText = '☀️ Light Mode';
-        }
     });
 }

@@ -409,102 +409,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetElement = document.querySelector(targetId);
         if(targetElement) {
-            const container = document.getElementById('main-content');
-            const header = document.getElementById('site-header');
-            const headerHeight = header ? header.offsetHeight : 80;
-            
-            container.scrollTo({
-                top: targetElement.offsetTop - headerHeight,
-                behavior: 'smooth'
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
-});
-
-// ---- ADVANCED 3D SCROLL ANIMATIONS (Intersection Observer + GSAP) ----
-const scrollElements = document.querySelectorAll('.section-heading-container, .skill-category, .experience-card, .credential-box, .contact-profile-card, .contact-form-container, .footer-top');
-
-const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const el = entry.target;
-        if(entry.isIntersecting) {
-            
-            // 1. SECTION HEADINGS (Cinematic Blur & Slide)
-            if (el.classList.contains('section-heading-container')) {
-                gsap.to(el, { opacity: 1, x: 0, filter: "blur(0px)", duration: 1.2, ease: "power4.out", overwrite: "auto" });
-            } 
-            
-            // 2. EXPERIENCE & CREDENTIAL CARDS (3D Flip & Spring)
-            else if (el.classList.contains('experience-card') || el.classList.contains('credential-box')) {
-                gsap.to(el, { opacity: 1, y: 0, rotationX: 0, scale: 1, filter: "blur(0px)", duration: 1.2, ease: "back.out(1.4)", overwrite: "auto" });
-                
-                // Stagger bullet points inside experience card
-                const bullets = el.querySelectorAll('li');
-                if(bullets.length > 0) {
-                    gsap.fromTo(bullets, 
-                        { opacity: 0, x: -20 },
-                        { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, delay: 0.3, ease: "power2.out", overwrite: "auto" }
-                    );
-                }
-            } 
-            
-            // 3. SKILL CATEGORIES (3D Door Swing & Staggered Tags)
-            else if (el.classList.contains('skill-category')) {
-                gsap.to(el, { opacity: 1, y: 0, rotationY: 0, duration: 1.2, ease: "power3.out", overwrite: "auto" });
-                
-                // Stagger skill tags dynamically
-                const tags = el.querySelectorAll('.skill-tag');
-                if(tags.length > 0) {
-                    gsap.fromTo(tags, 
-                        { opacity: 0, scale: 0.5, y: 20 },
-                        { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.05, delay: 0.2, ease: "back.out(2)", overwrite: "auto" }
-                    );
-                }
-            } 
-            
-            // 4. FALLBACK (Forms, Footer, Profile)
-            else {
-                gsap.to(el, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 1.2, ease: "power3.out", overwrite: "auto" });
-            }
-            
-        } else {
-            // Revert state when scrolling out of view (so it animates again when scrolling back down)
-            if (el.classList.contains('section-heading-container')) {
-                gsap.set(el, { opacity: 0, x: -100, filter: "blur(15px)" });
-            } 
-            else if (el.classList.contains('experience-card') || el.classList.contains('credential-box')) {
-                gsap.set(el, { opacity: 0, y: 120, rotationX: -45, scale: 0.85, filter: "blur(10px)" });
-            } 
-            else if (el.classList.contains('skill-category')) {
-                gsap.set(el, { opacity: 0, y: 100, rotationY: 60 });
-            } 
-            else {
-                gsap.set(el, { opacity: 0, y: 100, scale: 0.9, filter: "blur(10px)" });
-            }
-        }
-    });
-}, {
-    root: document.getElementById('main-content'),
-    threshold: 0.1, // Trigger when 10% of the element is visible
-    rootMargin: "0px 0px -50px 0px" // Trigger slightly before the bottom
-});
-
-scrollElements.forEach(el => {
-    // Setup initial 3D perspectives on parent containers
-    if (el.classList.contains('experience-card') || el.classList.contains('credential-box') || el.classList.contains('skill-category')) {
-        gsap.set(el.parentElement, { perspective: 1200 });
-    }
-    
-    // Set immediate initial hidden state based on type
-    if (el.classList.contains('section-heading-container')) {
-        gsap.set(el, { opacity: 0, x: -100, filter: "blur(15px)" });
-    } else if (el.classList.contains('experience-card') || el.classList.contains('credential-box')) {
-        gsap.set(el, { opacity: 0, y: 120, rotationX: -45, scale: 0.85, filter: "blur(10px)" });
-    } else if (el.classList.contains('skill-category')) {
-        gsap.set(el, { opacity: 0, y: 100, rotationY: 60 });
-    } else {
-        gsap.set(el, { opacity: 0, y: 100, scale: 0.9, filter: "blur(10px)" });
-    }
-    
-    scrollObserver.observe(el);
 });

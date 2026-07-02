@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usama Hassan - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <!-- Import map for Three.js -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <!-- The 3D Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- The Loading UI Overlay -->
+    <div id="loading-screen">
+        <div class="loading-ui">
+            <div class="brand">
+                <h1 class="portfolio-name">USAMA HASSAN</h1>
+                <h2 class="portfolio-subtitle">PORTFOLIO</h2>
+            </div>
+            
+            <h3 class="loading-title">SYSTEM <span class="glow">ENGAGED</span></h3>
+            
+            <div class="loading-center">
+                <div class="circular-progress">
+                    <svg viewBox="0 0 200 200">
+                        <!-- Background static ring -->
+                        <circle class="bg" cx="100" cy="100" r="80"></circle>
+                        <!-- Foreground animated ring -->
+                        <circle class="fg" cx="100" cy="100" r="80"></circle>
+                    </svg>
+                    <span class="loading-percentage">0%</span>
+                </div>
+            </div>
+            
+            <div class="loading-details">
+                <span class="loading-status">Igniting render engine...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIXED HEADER (Outside scroll container) -->
+    <header id="site-header" class="editorial-nav">
+        <a href="#hero-editorial" class="logo">Usama Hassan<span class="accent-dot">.</span></a>
+        
+        <nav class="nav-links">
+            <a href="#hero-editorial">HOME</a>
+            <a href="#skills-section">SKILLS</a>
+            <a href="#experience-section">EXPERIENCE</a>
+            <a href="#credentials-section">CREDENTIALS</a>
+            <a href="#contact-section">CONTACT</a>
+        </nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-btn">☀️ Light Mode</button>
+            <div class="mobile-menu-btn" aria-label="Toggle Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="2"></circle>
+                    <circle cx="12" cy="5" r="2"></circle>
+                    <circle cx="12" cy="19" r="2"></circle>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (Hidden initially) -->
+    <div id="main-content">
+        <!-- IMMERSIVE HERO SECTION -->
+        <section id="hero-editorial">
+
+            <!-- CENTER TITLE & PROFILE -->
+            <div class="hero-content-wrapper">
+                <div class="hero-left">
+                    <div class="greeting-badge">👋 Hi, I am</div>
+                    <h1 class="hero-name">Usama Hassan<span class="accent-dot">.</span></h1>
+                    <div class="animated-title-container">
+                        <h2 class="animated-title">Web Developer</h2>
+                    </div>
+                    <div class="hero-subtext-container">
+                        <p class="hero-subtext">
+                            Motivated Web Developer with experience building responsive, user-friendly, and visually appealing web applications. Skilled in HTML, CSS, JavaScript, Bootstrap, and modern web development practices. Experienced in developing interactive user interfaces, optimizing website performance, troubleshooting front-end issues, and collaborating on web-based projects. Passionate about creating seamless user experiences, writing clean code, and continuously learning new technologies to deliver high-quality web solutions.
+                        </p>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="usama hassan cv.pdf" target="_blank" class="cv-download-btn">
+                            <span class="btn-text">Download CV</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="editorial-profile">
+                        <img src="profile.jpeg" alt="Usama Hassan">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREMIUM SKILLS SECTION -->
+        <section id="skills-section">
+            
+            <div class="section-heading-container">
+                <span class="section-subtitle">What I Do</span>
+                <h2 class="massive-section-title">TECHNICAL EXPERTISE.</h2>
+            </div>
+
+            <div class="skills-container">
+                
+                <div class="skill-category">
+                    <h2 class="category-title">Programming & Web Development</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Responsive Web Design</span>
+                        <span class="skill-tag">DOM Manipulation</span>
+                        <span class="skill-tag">Databases</span>
+                        <span class="skill-tag">Debugging & Testing</span>
+                        <span class="skill-tag">UI/UX Implementation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h2 class="category-title">Web Development Tools</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Google Antigravity IDE</span>
+                        <span class="skill-tag">Chrome Developer Tools</span>
+                        <span class="skill-tag">REST API Integration</span>
+                        <span class="skill-tag">MongoDB & MySQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL EXPERIENCE SECTION -->
+        <section id="experience-section">
+            <div class="section-heading-container">
+                <span class="section-subtitle">Career Journey</span>
+                <h2 class="massive-section-title">EXPERIENCE.</h2>
+            </div>
+
+            <div class="experience-container">
+                
+                <!-- ARWEN TECH -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <h3 class="exp-role">Web Developer</h3>
+                        <span class="exp-duration">02/2025 &mdash; 02/2026</span>
+                    </div>
+                    <div class="exp-company">ARWEN TECH</div>
+                    <p class="exp-desc">Developed and maintained responsive web applications using modern web technologies. Collaborated with team members to improve user experience, optimize performance, and implement new features according to project requirements.</p>
+                    <ul class="exp-bullets">
+                        <li>Developed responsive and interactive web applications using HTML, CSS, and JavaScript.</li>
+                        <li>Optimized website performance and improved loading speed across multiple pages.</li>
+                        <li>Integrated web applications with backend services and APIs.</li>
+                        <li>Identified and resolved application issues through testing and debugging.</li>
+                    </ul>
+                </div>
+
+                <!-- SOFT-TECH Faisalabad -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <h3 class="exp-role">Web Developer</h3>
+                        <span class="exp-duration">02/2022 &mdash; 01/2025</span>
+                    </div>
+                    <div class="exp-company">SOFT-TECH Faisalabad</div>
+                    <p class="exp-desc">Designed, developed, and maintained websites and web applications while ensuring responsive design and cross-browser compatibility. Focused on improving usability, functionality, and overall application performance.</p>
+                    <ul class="exp-bullets">
+                        <li>Developed websites and web applications using HTML, CSS, JavaScript, PHP, and MySQL.</li>
+                        <li>Built responsive web pages and enhanced website usability and accessibility.</li>
+                        <li>Managed databases and implemented dynamic web functionality.</li>
+                        <li>Diagnosed and resolved application issues to improve reliability and performance.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- EDUCATION & CERTIFICATIONS SECTION -->
+        <section id="credentials-section">
+            <div class="section-heading-container">
+                <span class="section-subtitle">Academic Background</span>
+                <h2 class="massive-section-title">CREDENTIALS.</h2>
+            </div>
+
+            <div class="credentials-container">
+                
+                <!-- Education -->
+                <div class="credential-box">
+                    <h3 class="credential-type">Education</h3>
+                    <div class="credential-card">
+                        <div class="credential-year">2021 &mdash; 2025</div>
+                        <h4 class="credential-title">Bachelor of Science in Information Technology (BS IT)</h4>
+                        <div class="credential-issuer">University Of Agriculture Faisalabad</div>
+                        <div class="credential-location">Faisalabad, Pakistan</div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="credential-box">
+                    <h3 class="credential-type">Certifications</h3>
+                    <div class="credential-card">
+                        <div class="credential-year">Cisco</div>
+                        <h4 class="credential-title">Networking Basics</h4>
+                    </div>
+                    <div class="credential-card">
+                        <div class="credential-year">Cisco</div>
+                        <h4 class="credential-title">Introduction to Cyber Security</h4>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- CONTACT SECTION -->
+        <section id="contact-section">
+            <div class="section-heading-container">
+                <span class="section-subtitle">Let's Connect</span>
+                <h2 class="massive-section-title">CONTACT.</h2>
+            </div>
+
+            <div class="contact-container">
+                
+                <!-- Left: Profile Info -->
+                <div class="contact-profile-card">
+                    <div class="contact-avatar-wrapper">
+                        <img src="profile.jpeg" alt="Usama Hassan">
+                    </div>
+                    <div class="contact-identity">
+                        <h3 class="contact-name">Usama Hassan</h3>
+                        <div class="contact-role">Web Developer</div>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="contact-details-grid">
+                    
+                    <a href="mailto:usamahassan.it@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="contact-text">usamahassan.it@gmail.com</div>
+                    </a>
+
+                    <a href="tel:+923088074258" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="contact-text">+92 3088074258</div>
+                    </a>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="contact-text">Jhang, Pakistan</div>
+                    </div>
+
+                    <a href="https://usamahassan-it.github.io/portfolio" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </div>
+                        <div class="contact-text">usamahassan-it.github.io/portfolio</div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/usamahassan-it" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </div>
+                        <div class="contact-text">linkedin.com/in/usamahassan-it</div>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL FOOTER -->
+        <footer id="site-footer" class="professional-footer">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2>Usama Hassan<span class="accent-dot">.</span></h2>
+                    <p class="footer-tagline">Building robust, scalable, and beautifully designed web experiences.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/usamahassan-it" target="_blank" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:usamahassan.it@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-column">
+                        <h4>Core Engineering</h4>
+                        <a href="#">Enterprise Architecture Design</a>
+                        <a href="#">Cloud-Native Development</a>
+                        <a href="#">High-Frequency API Gateways</a>
+                        <a href="#">Microservices Orchestration</a>
+                        <a href="#">Advanced State Management</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Advanced Solutions</h4>
+                        <a href="#">WebGL & WebGPU Rendering</a>
+                        <a href="#">Real-time WebSocket Pipelines</a>
+                        <a href="#">CI/CD & DevOps Automation</a>
+                        <a href="#">Serverless Infrastructure</a>
+                        <a href="#">Distributed Systems Integration</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 Usama Hassan. All Rights Reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy policy.jpeg" target="_blank">Privacy Policy</a>
+                    <a href="terms of use.jpeg" target="_blank">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Main Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

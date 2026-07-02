@@ -305,6 +305,7 @@ body.light-mode .editorial-nav {
     letter-spacing: 1px;
     text-transform: none;
     color: var(--text-primary);
+    text-decoration: none;
 }
 
 .editorial-nav nav {

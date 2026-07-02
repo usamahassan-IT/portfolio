@@ -409,10 +409,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetElement = document.querySelector(targetId);
         if(targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Add a tiny delay to allow the mobile menu to close before scrolling
+            // This prevents layout shifts from interrupting the smooth scroll on mobile.
+            setTimeout(() => {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 50);
         }
     });
 });

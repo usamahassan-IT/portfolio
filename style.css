@@ -1252,7 +1252,11 @@ body.light-mode .footer-socials a {
         display: flex; /* Shown when toggled */
     }
     .editorial-nav nav a { 
-        font-size: 1rem; /* Larger touch targets for mobile */
+        font-size: 1.1rem; /* Larger touch targets for mobile */
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        display: block;
     }
     /* Hide the theme toggle button text on mobile to save space if needed, or keep it */
     .theme-btn {

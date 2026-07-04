@@ -1266,3 +1266,21 @@ body.light-mode .footer-socials a {
     /* Make Theme toggle slightly smaller */
     .theme-btn { font-size: 0.75rem; padding: 6px 14px; }
 }
+
+/* ---- SCROLL ANIMATIONS (Intersection Observer) ---- */
+.scroll-anim {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-slide-up { transform: translateY(40px); }
+.anim-fade-up { transform: translateY(30px) scale(0.98); }
+.anim-pop-in { transform: scale(0.5); }
+.anim-slide-left { transform: translateX(-40px); }
+
+/* When element intersects */
+.scroll-anim.in-view {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
